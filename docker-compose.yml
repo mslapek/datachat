@@ -1,0 +1,37 @@
+services:
+  web:
+    container_name: web
+    image: datachat-web
+    ports:
+      - "80:80"
+    networks:
+      - main
+    restart: unless-stopped
+  webserver:
+    container_name: webserver
+    image: datachat-webserver
+    ports:
+      - "8080:8080"
+    networks:
+      - main
+    restart: unless-stopped
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - main
+    restart: unless-stopped
+
+networks:
+  main:
+    driver: bridge
+
+volumes:
+  postgres:

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 600 860" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="dc-hello" transform="matrix(1.46667,0,0,1,-5.68434e-14,20)">
+        <path d="M300,25C300,11.202 292.362,0 282.955,0L17.045,0C7.638,0 0,11.202 0,25L0,275C0,288.798 7.638,300 17.045,300L282.955,300C292.362,300 300,288.798 300,275L300,25Z" style="fill:rgb(13,110,253);"/>
+        <clipPath id="_clip1">
+            <path d="M300,25C300,11.202 292.362,0 282.955,0L17.045,0C7.638,0 0,11.202 0,25L0,275C0,288.798 7.638,300 17.045,300L282.955,300C292.362,300 300,288.798 300,275L300,25Z"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(0.681818,0,0,1,-15.2727,-18.5957)">
+                <text x="40px" y="48.596px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;fill:white;">Hello! Schema of the connected database is:</text>
+            </g>
+            <g transform="matrix(0.681818,0,0,1,-13.6364,221.404)">
+                <text x="40px" y="48.596px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;fill:white;">Ask queries to the database using the form below<tspan x="302.16px " y="48.596px ">.</tspan></text>
+            </g>
+            <g transform="matrix(0.681818,0,0,1,12,40.7021)">
+                <text x="0px" y="17.191px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:white;">users</text>
+            </g>
+            <g transform="matrix(0.681818,0,0,1,0,0)">
+                <g transform="matrix(1,0,0,1,0,-20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.295px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;">Name</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,-20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.295px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;">T<tspan x="26.439px 33.113px " y="104.295px 104.295px ">yp</tspan>e</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">id</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">integer</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,60)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">name</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,60)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">character varying</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,100)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">country</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,100)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">character varying</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g id="user-q" transform="matrix(1.46667,0,0,0.2,160,380)">
+        <path d="M300,125C300,56.011 292.362,0 282.955,0L17.045,0C7.638,0 0,56.011 0,125L0,175C0,243.989 7.638,300 17.045,300L282.955,300C292.362,300 300,243.989 300,175L300,125Z" style="fill:rgb(108,117,125);"/>
+        <clipPath id="_clip2">
+            <path d="M300,125C300,56.011 292.362,0 282.955,0L17.045,0C7.638,0 0,56.011 0,125L0,175C0,243.989 7.638,300 17.045,300L282.955,300C292.362,300 300,243.989 300,175L300,125Z"/>
+        </clipPath>
+        <g clip-path="url(#_clip2)">
+            <g transform="matrix(0.681818,0,0,5,-15.2727,-100)">
+                <text x="40px" y="48.596px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;fill:white;">How many users are in each country?</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,20,5.68434e-14)">
+        <text x="-0px" y="14.295px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(102,102,102);">DataChat</text>
+    </g>
+    <g id="dc-resp" transform="matrix(1.46667,0,0,1.13333,0,500)">
+        <path d="M300,22.059C300,9.884 292.362,0 282.955,0L17.045,0C7.638,0 0,9.884 0,22.059L0,277.941C0,290.116 7.638,300 17.045,300L282.955,300C292.362,300 300,290.116 300,277.941L300,22.059Z" style="fill:rgb(13,110,253);"/>
+        <clipPath id="_clip3">
+            <path d="M300,22.059C300,9.884 292.362,0 282.955,0L17.045,0C7.638,0 0,9.884 0,22.059L0,277.941C0,290.116 7.638,300 17.045,300L282.955,300C292.362,300 300,290.116 300,277.941L300,22.059Z"/>
+        </clipPath>
+        <g clip-path="url(#_clip3)">
+            <g transform="matrix(0.681818,0,0,0.882353,-13.6364,-17.6471)">
+                <text x="40px" y="48.596px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;fill:white;">Generated SQL<tspan x="123.607px 126.941px " y="48.596px 48.596px "> q</tspan>uery is:</text>
+            </g>
+            <g transform="matrix(0.681818,0,0,0.882353,-13.6364,88.2353)">
+                <text x="40px" y="48.596px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;fill:white;">Response from the database:</text>
+            </g>
+            <g transform="matrix(0.681818,0,0,0.882353,6.30607e-14,70.5882)">
+                <g transform="matrix(1,0,0,1,0,-20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.295px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;">country</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,-20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.295px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;">count</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">USA</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,20)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">4014</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,60)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">Poland</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,60)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">3461</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,100)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">Germany</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,200,100)">
+                    <rect x="20" y="100" width="200" height="40" style="fill:rgb(242,242,242);"/>
+                    <g transform="matrix(1,0,0,1,10,20)">
+                        <text x="20px" y="104.298px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:12px;">3230</text>
+                    </g>
+                    <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.5px;"/>
+                </g>
+            </g>
+            <g transform="matrix(1.37182,0,0,1.78019,-15.4364,-143.345)">
+                <rect x="20" y="100" width="200" height="40" style="fill:white;"/>
+                <g transform="matrix(0.497018,0,0,0.49565,6.28231,85.4785)">
+                    <text x="40px" y="49.457px" style="font-family:'Monaco', 'Lucida', monospace;font-size:12px;fill:rgb(26,50,230);">SELECT country, count(*)</text>
+                    <text x="40px" y="68.457px" style="font-family:'Monaco', 'Lucida', monospace;font-size:12px;fill:rgb(26,50,230);">FROM users</text>
+                    <text x="40px" y="87.457px" style="font-family:'Monaco', 'Lucida', monospace;font-size:12px;fill:rgb(26,50,230);">GROUP BY country</text>
+                </g>
+                <rect x="20" y="100" width="200" height="40" style="fill:none;stroke:rgb(115,115,115);stroke-width:0.25px;"/>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,20,480)">
+        <text x="-0px" y="14.295px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(102,102,102);">DataChat</text>
+    </g>
+    <g transform="matrix(1,0,0,1,330,360)">
+        <text x="228.227px" y="14.295px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(102,102,102);">Y<tspan x="235.34px 242.67px " y="14.295px 14.295px ">ou</tspan></text>
+    </g>
+</svg>
