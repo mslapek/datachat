@@ -1,0 +1,25 @@
+//
+// Websocket messages sent from the client to the server.
+//
+
+syntax = "proto3";
+
+package datachat.ws.client;
+
+import "ws.proto";
+
+message ClientMessage {
+    datachat.ws.common.ChatID chat_id = 1;
+    oneof payload {
+        StartChatMessage start_chat = 5;
+        AddQuestionMessage add_question = 6;
+    }
+}
+
+message StartChatMessage {
+}
+
+message AddQuestionMessage {
+    uint32 question_id = 1;
+    string sql_query = 2;
+}

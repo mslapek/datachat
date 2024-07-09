@@ -1,0 +1,31 @@
+//
+// Messages describing the target database.
+//
+
+syntax = "proto3";
+
+package datachat.ws.targetdatabase;
+
+// Values of a table or query result.
+message TableValues {
+    repeated string column_names = 1;
+    repeated RowValues rows = 2;
+}
+
+message RowValues {
+    repeated string values = 1;
+}
+
+message DatabaseSchema {
+    repeated TableSchema tables = 1;
+}
+
+message TableSchema {
+    string name = 1;
+    repeated ColumnSchema columns = 2;
+}
+
+message ColumnSchema {
+    string name = 1;
+    string type = 2;
+}

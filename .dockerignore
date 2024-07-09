@@ -1,8 +1,19 @@
 *
 
-!core
-!pg
-!webserver
-!settings.gradle
+# datachat files
+!datachat
+!datachat_pg
+!protobuf
+!targetdb
+!Cargo.lock
+!Cargo.toml
 
-*/build
+# web files
+
+!web/src
+!web/index.html
+!web/*.json
+!web/vite.config.ts
+
+# web codegen
+web/src/features/api/proto/*

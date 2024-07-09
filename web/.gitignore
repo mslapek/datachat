@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Codegen
+src/features/api/proto/*
+!src/features/api/proto/.gitkeep

@@ -1,6 +1,0 @@
-rootProject.name = 'datachat'
-
-include 'core'
-include 'pg'
-include 'webserver'
-

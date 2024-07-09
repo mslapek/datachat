@@ -1,0 +1,56 @@
+//
+// Websocket messages sent from the server to client.
+//
+
+syntax = "proto3";
+
+package datachat.ws.server;
+
+import "google/protobuf/empty.proto";
+import "ws.proto";
+import "targetdatabase.proto";
+
+message ServerMessage {
+    datachat.ws.common.ChatID chat_id = 1;
+
+    oneof payload {
+        QuestionResultMessage question_result = 5;
+        AllQuestionsMessage all_questions = 6;
+        DatabaseSchemaMessage database_schema = 7;
+    }
+}
+
+message QuestionResultMessage {
+    uint32 question_id = 1;
+    QuestionState state = 2;
+}
+
+message AllQuestionsMessage {
+    oneof state {
+        QuestionStateArray questions = 1;
+        string error = 2;
+    }
+}
+
+message DatabaseSchemaMessage {
+    oneof state {
+        datachat.ws.targetdatabase.DatabaseSchema database_schema = 1;
+        string error = 2;
+    }
+}
+
+message QuestionState {
+    // we always include sql_query in case of concurrent chat sessions
+    string sql_query = 1;
+
+    oneof state {
+        google.protobuf.Empty pending = 5;
+        datachat.ws.targetdatabase.TableValues done = 6;
+        string error = 7;
+    }
+}
+
+// question_id is inferred from the index in the array.
+message QuestionStateArray {
+    repeated QuestionState questions = 1;
+}

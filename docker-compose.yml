@@ -8,12 +8,14 @@ services:
       - main
     restart: unless-stopped
   webserver:
-    container_name: webserver
-    image: datachat-webserver
+    container_name: datachat
+    image: datachat
     ports:
       - "8080:8080"
     networks:
       - main
+    environment:
+      - TARGETDB=host=postgres user=postgres password=postgres
     restart: unless-stopped
   postgres:
     container_name: postgres

@@ -1,21 +1,27 @@
-import {DbSchema} from "../schema/schemaSlice.ts";
-import {AllQuestions, Question} from "../questions/questionsSlice.ts";
-import {store} from "../../app/store.ts";
+import { DbSchema } from "../schema/schemaSlice.ts";
+import { AllQuestions, Question } from "../questions/questionsSlice.ts";
+import { store } from "../../app/store.ts";
+import { ClientMessage } from "./proto/wsclient.ts"
+import { AllQuestionsMessage, DatabaseSchemaMessage, QuestionResultMessage, QuestionState, ServerMessage } from "./proto/wsserver.ts";
 
-function getDatabaseSchemaAction(data: any) {
+function getDatabaseSchemaAction(_: ServerMessage, data: DatabaseSchemaMessage) {
     let payload: DbSchema
-    if (data.error) {
+
+    if (data.error != null) {
         payload = {
             "tables": null,
             "error": data.error,
             "status": "error"
         }
-    } else {
+    } else if (data.databaseSchema != null) {
+        const schema = data.databaseSchema
         payload = {
-            "tables": data.schema.tables,
+            "tables": schema.tables,
             "error": null,
             "status": "ready"
         }
+    } else {
+        throw new Error("Unknown message type")
     }
 
     return {
@@ -24,39 +30,62 @@ function getDatabaseSchemaAction(data: any) {
     };
 }
 
-function getAllQuestionsAction(data: any) {
+function parseQuestionState(id: number, msg: QuestionState): Question {
+    let r: Question
+    if (msg.error != null) {
+        r = {
+            "id": id,
+            "status": "error",
+            "error": msg.error,
+            "sqlQuery": msg.sqlQuery,
+            "queryResult": null,
+        }
+    } else if (msg.pending != null) {
+        r = {
+            "id": id,
+            "status": "loading",
+            "error": null,
+            "sqlQuery": msg.sqlQuery,
+            "queryResult": null,
+        }
+    } else if (msg.done != null) {
+        const tr = msg.done
+        const tb = {
+            "columnNames": tr.columnNames,
+            "rows": tr.rows.map((r) => r.values),
+        }
+        r = {
+            "id": id,
+            "status": "ready",
+            "error": null,
+            "sqlQuery": msg.sqlQuery,
+            "queryResult": tb,
+        }
+    } else {
+        throw new Error("Unknown message type")
+    }
+    return r
+}
+
+function getAllQuestionsAction(_: ServerMessage, data: AllQuestionsMessage) {
     let payload: AllQuestions
-    if (data.error) {
+
+    if (data.error != null) {
         payload = {
             "messages": null,
             "error": data.error,
             "status": "error"
         }
-    } else {
-        let q: Question[] = data.questions.map((msg: any, i: number) => {
-            let status: "ready" | "loading" | "error"
-            if (msg.error) {
-                status = "error"
-            } else if (msg.queryResult) {
-                status = "ready"
-            } else {
-                status = "loading"
-            }
-
-            let q: Question = {
-                "id": i,
-                "status": status,
-                "error": msg.error,
-                "sqlQuery": msg.sqlQuery,
-                "queryResult": msg.queryResult,
-            }
-            return q
-        })
+    } else if (data.questions != null) {
+        const questions = data.questions.questions
+        let q: Question[] = questions.map((msg, i) => { return parseQuestionState(i, msg) })
         payload = {
             "messages": q,
             "error": null,
             "status": "ready"
         }
+    } else {
+        throw new Error("Unknown message type")
     }
 
     return {
@@ -66,34 +95,12 @@ function getAllQuestionsAction(data: any) {
 }
 
 
-function getQuestionResultAction(data: any) {
-    let payload: Question
-    if (data.question.error) {
-        payload = {
-            "id": data.questionId,
-            "status": "error",
-            "error": data.question.error,
-            "sqlQuery": data.question.sqlQuery,
-            "queryResult": null,
-        }
-    } else if (data.question.queryResult) {
-        payload = {
-            "id": data.questionId,
-            "status": "ready",
-            "error": null,
-            "sqlQuery": data.question.sqlQuery,
-            "queryResult": data.question.queryResult,
-        }
-    } else {
-        payload = {
-            "id": data.questionId,
-            "status": "loading",
-            "error": null,
-            "sqlQuery": data.question.sqlQuery,
-            "queryResult": null,
-        }
+function getQuestionResultAction(_: ServerMessage, data: QuestionResultMessage) {
+    if (data.state == null) {
+        throw new Error("Expected a result")
     }
 
+    let payload: Question = parseQuestionState(data.questionId, data.state)
     return {
         "type": "questions/setQuestionResult",
         "payload": payload
@@ -106,38 +113,43 @@ const socket = new WebSocket("ws://localhost:8080/chat-ws");
 let chatId = "12340000-0000-0000-0000-000000000000";
 
 socket.addEventListener("open", (_) => {
-    socket.send(JSON.stringify({
-        "type": "startChat",
-        "chatId": chatId,
-    }));
+    const msg: ClientMessage = {
+        "chatId": { "chatId": chatId },
+        "startChat": {}
+    }
+    socket.send(ClientMessage.encode(msg).finish());
 });
 
-socket.addEventListener("message", (event) => {
-    let d = JSON.parse(event.data);
-    if (d.chatId != chatId) {
+socket.addEventListener("message", async (event) => {
+    const b = new Uint8Array(await event.data.arrayBuffer());
+    const msg = ServerMessage.decode(b);
+
+    if (msg.chatId?.chatId != chatId) {
         return;
     }
 
-    switch (d.type) {
-        case "databaseSchema":
-            store.dispatch(getDatabaseSchemaAction(d))
-            break;
-        case "allQuestions":
-            store.dispatch(getAllQuestionsAction(d))
-            break;
-        case "questionResult":
-            store.dispatch(getQuestionResultAction(d))
-            break;
-        default:
-            console.log("Unknown message type: " + d.type)
+    let action;
+    if (msg.databaseSchema != null) {
+        action = getDatabaseSchemaAction(msg, msg.databaseSchema)
+    } else if (msg.allQuestions != null) {
+        action = getAllQuestionsAction(msg, msg.allQuestions)
+    } else if (msg.questionResult != null) {
+        action = getQuestionResultAction(msg, msg.questionResult)
+    } else {
+        throw new Error("Unknown message type")
     }
+
+    store.dispatch(action)
 });
 
 export function sendAddQuestion(q: Question) {
-    socket.send(JSON.stringify({
-        "type": "addQuestion",
-        "chatId": chatId,
-        "questionId": q.id,
-        "sqlQuery": q.sqlQuery,
-    }));
+    const msg: ClientMessage = {
+        "chatId": { "chatId": chatId },
+        "addQuestion": {
+            "questionId": q.id,
+            "sqlQuery": q.sqlQuery
+        }
+    }
+
+    socket.send(ClientMessage.encode(msg).finish());
 }

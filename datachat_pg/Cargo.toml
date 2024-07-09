@@ -1,0 +1,11 @@
+[package]
+name = "datachat_pg"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-trait = "0.1.80"
+tokio = { version = "1", features = ["full"] }
+
+targetdb = { path = "../targetdb" }
+tokio-postgres = "0.7.10"

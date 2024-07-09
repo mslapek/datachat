@@ -1,0 +1,17 @@
+//
+// Common proto messages for client and server.
+//
+
+syntax = "proto3";
+
+package datachat.ws.common;
+
+message ChatID {
+    // UUID of the chat session.
+    // Encoded as "12340000-0000-0000-0000-000000000000".
+    // UUID encoding is the same as in the UUID class in Java.
+    //
+    // This is the chief problem of mankind:
+    // https://github.com/uuid-rs/uuid/issues/715
+    string chat_id = 1;
+}

@@ -1,8 +1,8 @@
 ![DataChat logo](img/datachat-banner.svg)
 
-[![Java 17](img/java17.svg)](#)
+[![Rust](img/rust.svg)](#)
 &nbsp;
-[![Spring WebFlux](img/springwebflux.svg)](#)
+[![Tokio axum](img/axum.svg)](#)
 &nbsp;
 [![TypeScript](img/typescript.svg)](#)
 &nbsp;
@@ -22,7 +22,7 @@ DataChat connects to any PostgreSQL database.
 
 It allows you to explore your data in a form of chat.
 
-DataChat is a web application built with Spring WebFlux and React + Redux.
+DataChat is a web application built with Rust + Tokio axum and React + Redux.
 
 ## How to run
 

@@ -1,0 +1,27 @@
+[package]
+name = "datachat"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.7.5", features = ["ws"] }
+tokio = { version = "1.38.0", features = ["full"] }
+
+futures = "0.3.30"
+tower = "0.4.13"
+async-trait = "0.1.80"
+tokio-stream = "0.1.15"
+
+prost = "0.12"
+prost-types = "0.12"
+
+anyhow = "1.0"
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+uuid = { version = "1.9.1", features = ["v4", "serde"] }
+
+targetdb = { path = "../targetdb" }
+datachat_pg = { path = "../datachat_pg" }
+
+[build-dependencies]
+prost-build = { version = "0.12" }

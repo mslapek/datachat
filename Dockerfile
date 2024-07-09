@@ -1,13 +1,21 @@
-FROM gradle:8.2.0-jdk17 AS build
+FROM rust:1.79-bookworm AS build
 
-COPY --chown=gradle:gradle . /home/gradle/src
+RUN apt-get update && apt-get install -y protobuf-compiler
 
-WORKDIR /home/gradle/src
-RUN gradle build --no-daemon
+RUN mkdir /src
+WORKDIR /src
+COPY datachat ./datachat
+COPY datachat_pg ./datachat_pg
+COPY protobuf ./protobuf
+COPY targetdb ./targetdb
+COPY Cargo.lock ./Cargo.lock
+COPY Cargo.toml ./Cargo.toml
 
-FROM eclipse-temurin:17-jre AS run
+RUN cargo build --release
+
+FROM debian:bookworm AS run
 
 EXPOSE 8080
 
-COPY --from=build /home/gradle/src/webserver/build/libs/ /app.jar
-CMD ["java", "-jar", "/app.jar/webserver-0.0.1.jar"]
+COPY --from=build /src/target/release/datachat /datachat
+CMD ["/datachat"]
